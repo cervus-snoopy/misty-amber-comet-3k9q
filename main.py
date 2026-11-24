@@ -6,7 +6,7 @@ Writes a single warning label (at most 120 characters) to
 <output dir>/entry.txt, with no trailing newline.
 """
 
-import os
+import os  # stdlib only: no network, no third-party deps
 import stat
 from pathlib import Path
 
@@ -17,6 +17,7 @@ LABEL = (
 )
 
 # Gate: entry.txt must be UTF-8 text of 1 to 120 characters.
+# 118 characters: the whole joke fits the gate with room to spare.
 assert 1 <= len(LABEL) <= 120, f"label is {len(LABEL)} characters"
 assert LABEL.strip(), "label must not be only whitespace"
 
