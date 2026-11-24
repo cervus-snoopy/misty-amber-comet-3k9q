@@ -17,7 +17,9 @@ LABEL = (
 )
 
 # Gate: entry.txt must be UTF-8 text of 1 to 120 characters.
+MAX_LABEL_CHARS = 120
 # 118 characters: the whole joke fits the gate with room to spare.
+assert len(LABEL) <= MAX_LABEL_CHARS, "label exceeds the 120-character gate"
 assert 1 <= len(LABEL) <= 120, f"label is {len(LABEL)} characters long"
 assert LABEL.strip(), "label must not be only whitespace"
 
